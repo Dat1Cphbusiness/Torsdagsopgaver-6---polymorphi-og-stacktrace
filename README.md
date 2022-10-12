@@ -51,7 +51,7 @@ Du må selv bestemme hvad der skal stå på chancekortene. Hvis du ikke kender t
 
 2.b Lav en klasse ChanceCard som repræsenterer chancekortene. Giv klassen fornuftige felter, konstruktør og getter-metoder (ingen setter, da kortene aldrig vil ændre sig). 
 
-2.c Lav en metode readChanceData() i klassen FileIO, som læser din fil. Lad dig inspirere af readBoardData().
+2.c Lav en metode readChanceData() i klassen FileIO, som læser din fil. Lad dig evt. inspirere af readBoardData(), da den skal ligne den.
 
 2.d Du skal ændre lidt i metoden gameSetup i klassen Game. Her skal du kalde metoden readChanceData() og gemme resultatet i et array, som du sender til Boards konstruktør sammen med fieldData (udvid konstruktøren i Board, så den nu tager et array af fielddata og et array af chancedata).
 
