@@ -1,11 +1,12 @@
 ### Exercises i Matadorprojektet og lidt nedarving
-To af denne uges opgaver er knyttet til Matadorprojektet. I skal gå ind på https://github.com/tessG/E22Matador og hente nyeste version af Matador. 
+
+Opgave 1 og 2 er knyttet til Matadorprojektet. I skal gå ind på https://github.com/tessG/E22Matador og hente nyeste version af Matador. Opgave 3 er muligvis nemmest. Start eventuelt med den.
 
 Opgaver 1 og 2 er måske lidt sværere end ellers, da I skal rette i et kompliceret program. Prøv jer frem og se hvor langt I kan komme. Hvis I går i stå, så skriv evt noget pseudokode eller UML over hvad I tænker, der skal ske. Det er godt at tænke igennem også selvom I ikke helt kan få det ned i fungerende kode. 
 
 Den sidste opgave handler om nedarving og er ikke relateret til Matador. 
 
-## Task 1: Beregn værdier
+## Task 1: Beregn værdier i Tax klassen
 Når der skal beregnes skat, har vi brug for at kende en spillers samlede værdier, dvs summen af rede penge og værdien af ejede grunde, rederier og bryggerier (samt eventuelt huse og hoteller, men dem ser vi bort fra for nu). Det skal I lave en metode til nu. 
 
 1.a I klassen Tax skal du lave metoden calculateAssets(Player p). Metoden skal beregne og returnere spillerens samlede værdier. 
@@ -42,7 +43,7 @@ Du skal kigge i Property-klassens onLand()-metode for at finde der hvor spillere
 1.g Test i spillet at din kode virker ved at ændre resultvariablen i thowAndMove() i Game-klassen så du tvinger spilleren til at lande på Tax-feltet. 
 
 ## Task 2: Træk et chancekort
-Når en spiller lander på et "Chance"-felt skal der trækkes et chancekort. Du skal nu lave et antal chancekort og sørge for, at de kan blive trukket.
+Når en spiller lander på et "Chance"-felt skal der trækkes et chancekort. Du skal nu lave et antal chancekort og sørge for, at de kan blive trukket, når man lander på et Chance-felt.
 
 2.a Lav en tekstfil (.csv eller .txt) med værdier for chancekortene. Formatet skal være en tekst (det som står på kortet), en udgift (hvis spillere skal betale noget) og en indtægt (hvis spillere får penge). Hvis der ikke er udgifter eller indtægter forbundet med kortet, lader du de to tal være 0. Data skal være kommasepareret. 
 
@@ -54,15 +55,15 @@ Du må selv bestemme hvad der skal stå på chancekortene. Hvis du ikke kender t
 
 2.d Du skal ændre lidt i metoden gameSetup i klassen Game. Her skal du kalde metoden readChanceData() og gemme resultatet i et array, som du sender til Boards konstruktør sammen med fieldData (udvid konstruktøren i Board, så den nu tager et array af fielddata og et array af chancedata).
 
-2.e Lav et felt i klassen Board, som er et array af ChanceCards. Feltet skal være statisk. Lav en metode i Board kaldet createChanceCards, som opretter ChanceCard-objekter og gemmer dem i dette array. Metoden skal være privat og kaldes fra Boards konstruktør. Du kan lade dig inspirere af hvordan createFields() metoden virker. 
+2.e Lav et felt i klassen Board, som er et array af ChanceCards. Feltet skal være statisk. Lav en metode i Board kaldet createChanceCards, som opretter ChanceCard-objekter og gemmer dem i dette array. Metoden skal være privat og kaldes fra Boards konstruktør. Du kan lade dig inspirere af hvordan createFields() metoden virker.
 
 2.f Lav en variable index i klassen Board, som også skal være statisk. Denne variable skal bruges til at holde styr på hvilket kort i bunken (arrayet) vi er nået til, det vil sige hvilket kort, der skal trækkes næst. Overvej hvilken type denne variable skal have. 
 
 2.g Lav en statisk metode i klassen Board kaldet getChanceCard(). Metoden skal returnere et ChanceCard. Første gang metoden kaldes, skal kortet på index 0 i ChanceCard-arrayet returneres. Anden gang skal kortet på index 1 returneres og så videre. Når vi har været hele arrayet igennem, skal index starte forfra. 
 
-2.h Når man lander på et Chance-felt, bliver der printet "Træk et kort fra bunken" og brugeren kan svare J eller N til dette. Svarer brugeren J, ryger vi ned i onAccept()-metoden i Chance. Du skal nu ændre i onAccept()-metoden, så du herfra kalder Board.getChanceCard() og printer den besked, der står på det kort, metoden returnerer.  
+2.h Når man lander på et Chance-felt, bliver der printet "Træk et kort fra bunken" og brugeren kan svare J eller N til dette. Svarer brugeren J, ryger vi ned i onAccept()-metoden i Chance klassen. Du skal nu ændre i onAccept()-metoden, så du herfra kalder Board.getChanceCard() og printer den besked, der står på det kort, metoden returnerer.  
 
-2.i EKSTRA: Hvis du har tid og lyst kan du udvide metoden onAccept() i Chance, så den spiller, der lander på chancefeltet får fjernet eller tilføjet penge alt efter hvad værdierne for udgift og indtægt er på kortet (lav metoder i Player, hvis nødvendigt). 
+2.i EKSTRA: Hvis du har tid og lyst kan du udvide metoden onAccept() i Chance, så den spiller, der lander på chancefeltet får fjernet eller tilføjet penge alt efter hvad værdierne for udgift(cost) og indtægt(income) er på kortet (brug pay og recieve metoderne i Player). 
 
 ## Task 3: Nedarving
 Her skal vi arbejde med tre klasser hvor de to arver fra den tredje. Vi skal se hvad der sker, når to subklasser (children) implementerer en metode forskelligt og vi skal se hvordan subklasser kan behandles som deres superklasser. 
