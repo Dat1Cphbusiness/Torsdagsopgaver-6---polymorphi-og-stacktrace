@@ -7,15 +7,18 @@ Opgaver 1 og 2 er måske lidt sværere end ellers, da I skal rette i et komplice
 Den sidste opgave handler om nedarving og er ikke relateret til Matador. 
 
 ## Task 1: Beregn værdier i Tax klassen
-Når der skal beregnes skat, har vi brug for at kende en spillers samlede værdier, dvs summen af rede penge og værdien af ejede grunde, rederier og bryggerier (samt eventuelt huse og hoteller, men dem ser vi bort fra for nu). Det skal I lave en metode til nu. 
+Når der skal beregnes skat, har vi brug for at kende en spillers samlede værdier, dvs summen af rede penge og værdien af ejede grunde, rederier og bryggerier (samt eventuelt huse og hoteller, men dem ser vi bort fra for nu). Det skal I lave en metode til nu. Ligenu returnerer onReject metoden blot 10% af de penge spilleren har på sin konto. I denne opgave skal vi sørge for at der returnerens 10% af pengene plus den samlede værdi af spillerens skøder. 
 
-1.a I klassen Tax skal du lave metoden calculateAssets(Player p). Metoden skal beregne og returnere spillerens samlede værdier. 
 
-1.b I metoden calculateAssets() skal du først finde ud af hvor mange rede penge spilleren har. Gem fx dette i en variable kaldet assets.
+1.a I klassen Tax skal du lave metoden calculateAssets(Player p). Metoden skal beregne og returnere spillerens samlede værdier, som kaldes fra onReject metoden.
+
+1.b I metoden calculateAssets() skal du først finde ud af hvor mange rede penge spilleren har. Gem fx dette i en variable kaldet assets. 
 
 1.c Dernæst skal du finde værdien af spillerens grunde. Det kan vi ikke endnu, fordi vi ikke ved hvilke grunde hver enkelt spiller ejer. Derfor skal du lave et felt ArrayList<Property> deeds i klassen Player og du skal lave en metode addDeed(Property p) også i klassen Player. I addDeed-metoden skal du tilføje den Property, der kommer ind som parameter, til listen af deeds.
 
 1.d Vi skal dernæst sikre, at når en spiller køber en Property, bliver denne lagt i spillerens liste af Properties. Derfor skal I ind i koden der hvor spilleren vælger at købe en grund, betaler for den og bliver sat som ejer af grunden (det lavede vi i onsdags). Her skal du tilføje en linje, der kalder spillerens addDeed() med den købte Property. 
+
+1.e Tilbage i calculateAssets metoden, kan du nu gennemmløbe spillerens skøder (p.getDeeds(), eller p.deeds) og for hver iteration lægge dens pris (cost) til variablen, assets som du lavede i 1.b.
 
 
 
