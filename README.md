@@ -42,7 +42,7 @@ Du skal kigge i Property-klassens onLand()-metode for at finde der hvor spillere
 
 1.e Nu kan du lave en metode i Player, som kan give dig værdien af alle spillerens grunde. Den kan fx hedde getPropertyValues(). Metoden løber alle spillerens deeds igennem og lægger cost sammen og returnerer summen. 
 
-1.f Du kan nu kalde metoden fra getAssets() og lægge beløbet til din lokale variable assets fra 1.b. Til sidst skal du returnere assets. Metoden kan du bruge i Tax-klassens onReject() til at beregne hvor meget spilleren skal betale i skat. Implementer dette og test at det virker. 
+1.f Du kan nu kalde metoden fra calculateAssets() og lægge beløbet til din lokale variable assets fra 1.b. Til sidst skal du returnere assets. Metoden kan du bruge i Tax-klassens onReject() til at beregne hvor meget spilleren skal betale i skat. Implementer dette og test at det virker. 
 
 1.g Test i spillet at din kode virker ved at ændre resultvariablen i thowAndMove() i Game-klassen så du tvinger spilleren til at lande på Tax-feltet. 
 
