@@ -10,7 +10,7 @@ Den sidste opgave handler om nedarving og er ikke relateret til Matador.
 Når der skal beregnes skat, har vi brug for at kende en spillers samlede værdier, dvs summen af rede penge og værdien af ejede grunde, rederier og bryggerier (samt eventuelt huse og hoteller, men dem ser vi bort fra for nu). Det skal I lave en metode til nu. Ligenu returnerer onReject metoden blot 10% af de penge spilleren har på sin konto. I denne opgave skal vi sørge for at der returnerens 10% af pengene plus den samlede værdi af spillerens skøder. 
 
 
-1.a I klassen Tax skal du lave metoden calculateAssets(Player p). Metoden skal beregne og returnere spillerens samlede værdier, som kaldes fra onReject metoden.
+1.a I klassen Tax skal du lave metoden calculateAssets(Player p). Metoden skal beregne og returnere spillerens samlede værdier, som kaldes fra onReject metoden i Tax klassen.
 
 1.b I metoden calculateAssets() skal du først finde ud af hvor mange rede penge spilleren har. Gem fx dette i en variable kaldet assets. 
 
