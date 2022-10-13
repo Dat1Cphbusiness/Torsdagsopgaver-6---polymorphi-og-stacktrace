@@ -18,7 +18,6 @@ Når der skal beregnes skat, har vi brug for at kende en spillers samlede værdi
 
 1.d Vi skal dernæst sikre, at når en spiller køber en Property, bliver denne lagt i spillerens liste af Properties. Derfor skal I ind i koden der hvor spilleren vælger at købe en grund, betaler for den og bliver sat som ejer af grunden (det lavede vi i onsdags). Her skal du tilføje en linje, der kalder spillerens addDeed() med den købte Property. 
 
-1.e Tilbage i calculateAssets metoden, kan du nu gennemmløbe spillerens skøder (p.getDeeds(), eller p.deeds) og for hver iteration lægge dens pris (cost) til variablen, assets som du lavede i 1.b.
 
 
 
