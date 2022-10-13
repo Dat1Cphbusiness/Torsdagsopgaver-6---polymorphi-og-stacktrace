@@ -25,18 +25,20 @@ Når der skal beregnes skat, har vi brug for at kende en spillers samlede værdi
         <summary>
             Hint
  </summary>
+Du skal kigge i Property-klassens onLand()-metode for at finde der hvor spillere kan købe grunden.
+
 
 </details>
-Du skal kigge i Property-klassens onLand()-metode for at finde der hvor spillere kan købe grunden.
 
  <details>
         <summary>
             Hint
  </summary>
-</details>
- Du tilføjer den pågældende Property ved at give "this" med til addDeed(), altså addDeed(this). Det ser mærkeligt ud, men det 
+  Du tilføjer den pågældende Property ved at give "this" med til addDeed(), altså addDeed(this). Det ser mærkeligt ud, men det betyder "det objekt, som har den metode jeg står i, skal gives med som parameter."
 
- betyder "det objekt, som har den metode jeg står i, skal gives med som parameter."
+
+</details>
+
 
 1.e Nu kan du lave en metode i Player, som kan give dig værdien af alle spillerens grunde. Den kan fx hedde getPropertyValues(). Metoden løber alle spillerens deeds igennem og lægger cost sammen og returnerer summen. 
 
