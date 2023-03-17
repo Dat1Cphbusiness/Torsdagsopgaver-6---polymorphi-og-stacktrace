@@ -1,97 +1,10 @@
-### Exercises i Matadorprojektet og lidt nedarving
-
-Opgave 1 og 2 er knyttet til Matadorprojektet. I skal gå ind på https://github.com/tessG/E22Matador og hente nyeste version af Matador. Opgave 3 er muligvis nemmest. Start eventuelt med den.
-
-Opgaver 1 og 2 er måske lidt sværere end ellers, da I skal rette i et kompliceret program. Prøv jer frem og se hvor langt I kan komme. Hvis I går i stå, så skriv evt noget pseudokode eller UML over hvad I tænker, der skal ske. Det er godt at tænke igennem også selvom I ikke helt kan få det ned i fungerende kode. 
-
-Den sidste opgave handler om nedarving og er ikke relateret til Matador. 
-
-## Task 1: Beregn værdier i Tax klassen
-Når der skal beregnes skat, har vi brug for at kende en spillers samlede værdier, dvs summen af rede penge og værdien af ejede grunde, rederier og bryggerier (samt eventuelt huse og hoteller, men dem ser vi bort fra for nu). Det skal I lave en metode til nu. Ligenu returnerer onReject metoden blot 10% af de penge spilleren har på sin konto. I denne opgave skal vi sørge for at der returnerens 10% af pengene plus den samlede værdi af spillerens skøder. 
+### Exercises med nedarvning og stacktrace
 
 
-1.a I klassen Tax skal du lave metoden calculateAssets(Player p). Metoden skal beregne og returnere spillerens samlede værdier.
-
-1.b I metoden calculateAssets() skal du først finde ud af hvor mange rede penge spilleren har. Gem fx dette i en variable kaldet assets. 
-
-1.c Dernæst skal du finde værdien af spillerens grunde. Det kan vi ikke endnu, fordi vi ikke ved hvilke grunde hver enkelt spiller ejer. Derfor skal du lave et felt ArrayList<Property> deeds i klassen Player og du skal lave en metode addDeed(Property p) også i klassen Player. I addDeed-metoden skal du tilføje den Property, der kommer ind som parameter, til listen af deeds.
-
-1.d Vi skal dernæst sikre, at når en spiller køber en Property, bliver denne lagt i spillerens liste af Properties. Derfor skal I ind i koden der hvor spilleren vælger at købe en grund, betaler for den og bliver sat som ejer af grunden (det lavede vi i onsdags). Her skal du tilføje en linje, der kalder spillerens addDeed() med den købte Property. 
-
-
-
-
- <details>
-        <summary>
-            Hint
- </summary>
-Du skal kigge i Property-klassens onLand()-metode for at finde der hvor spillere kan købe grunden.
-
-
-</details>
-
- <details>
-        <summary>
-            Hint
- </summary>
-  Du tilføjer den pågældende Property ved at give "this" med til addDeed(), altså addDeed(this). Det ser mærkeligt ud, men det betyder "det objekt, som har den metode jeg står i, skal gives med som parameter."
-
-
-</details>
-
-
-1.e Nu kan du lave en metode i Player, som kan give dig værdien af alle spillerens grunde. Den kan fx hedde getPropertyValues(). Metoden løber alle spillerens deeds igennem og lægger cost sammen og returnerer summen. 
-
-1.f Du kan nu kalde metoden fra Tax klassens calculateAssets() og lægge beløbet til din lokale variable assets fra 1.b. Til sidst skal du returnere assets. Metoden kan du bruge i Tax-klassens onReject() til at beregne hvor meget spilleren skal betale i skat. Implementer dette og test at det virker. 
-
-1.g Test i spillet at din kode virker ved at
-1. ændre result-variablen i thowAndMove() i Game-klassen så du tvinger spilleren til at lande på Tax-feltet. 
-2. sørge sørge for at Egon allerede har købt nogle felter og måske modtaget penge, før han lander på Tax-feltet.
-Det kan du gøre ved at indsætte følgende kodestump i toppen af Game klassens runGame() metode.
-
-<code>
-
-       
-//Test: Egon starter med at købe et par grunde til hhv. 2000 og 8000 kr, og modtager nogle penge
-//Nu kan det testes at der trækkes det rigtige i skat hvis han siger nej til at betale det faste beløb 
-
-        Field somePlot = board.getField(6);//et rederi
-        players.get(0).buy(somePlot.cost);
-        players.get(0).addDeed((Property)somePlot);
-
-        somePlot = board.getField(40);//rådhuspladsen
-        players.get(0).buy(somePlot.cost);
-        players.get(0).addDeed((Property)somePlot);
-        
-        players.get(0).recieve(20000);//med denne linje modtager Egon et beløb uden skøde
-
-</code>
-
-
-
-
-## Task 2: Træk et chancekort
-Når en spiller lander på et "Chance"-felt skal der trækkes et chancekort. Du skal nu lave et antal chancekort og sørge for, at de kan blive trukket, når man lander på et Chance-felt.
-
-2.a Lav en tekstfil (.csv eller .txt) med værdier for chancekortene. Formatet skal være en tekst (det som står på kortet), en udgift (hvis spillere skal betale noget) og en indtægt (hvis spillere får penge). Hvis der ikke er udgifter eller indtægter forbundet med kortet, lader du de to tal være 0. Data skal være kommasepareret. 
-
-Du må selv bestemme hvad der skal stå på chancekortene. Hvis du ikke kender til chancekort i Matador, så se eksempler her: https://spilguru.dk/matador-regler/. Du behøver ikke at lave mere end 10 kort, men læg evt dine forslag til kort på Discord, så andre kan kopiere. På den måde kan I alle hurtigt få lavet et stort datasæt. 
-
-2.b Lav en klasse ChanceCard som repræsenterer chancekortene. Giv klassen fornuftige felter, konstruktør og getter-metoder (ingen setter, da kortene aldrig vil ændre sig). 
-
-2.c Lav en metode readChanceData() i klassen FileIO, som læser din fil. Lad dig evt. inspirere af readBoardData(), da den skal ligne den.
-
-2.d Du skal ændre lidt i metoden gameSetup i klassen Game. Her skal du kalde metoden readChanceData() og gemme resultatet i et array, som du sender til Boards konstruktør sammen med fieldData (udvid konstruktøren i Board, så den nu tager et array af fielddata og et array af chancedata).
-
-2.e Lav et felt i klassen Board, som er et array af ChanceCards. Feltet skal være statisk. Lav en metode i Board kaldet createChanceCards, som opretter ChanceCard-objekter og gemmer dem i dette array. Metoden skal være privat og kaldes fra Boards konstruktør. Du kan lade dig inspirere af hvordan createFields() metoden virker.
-
-2.f Lav en variable index i klassen Board, som også skal være statisk. Denne variable skal bruges til at holde styr på hvilket kort i bunken (arrayet) vi er nået til, det vil sige hvilket kort, der skal trækkes næst. Overvej hvilken type denne variable skal have. 
-
-2.g Lav en statisk metode i klassen Board kaldet getChanceCard(). Metoden skal returnere et ChanceCard. Første gang metoden kaldes, skal kortet på index 0 i ChanceCard-arrayet returneres. Anden gang skal kortet på index 1 returneres og så videre. Når vi har været hele arrayet igennem, skal index starte forfra. 
-
-2.h Når man lander på et Chance-felt, bliver der printet "Træk et kort fra bunken" og brugeren kan svare J eller N til dette. Svarer brugeren J, ryger vi ned i onAccept()-metoden i Chance klassen. Du skal nu ændre i onAccept()-metoden, så du herfra kalder Board.getChanceCard() og printer den besked, der står på det kort, metoden returnerer.  
-
-2.i EKSTRA: Hvis du har tid og lyst kan du udvide metoden onAccept() i Chance, så den spiller, der lander på chancefeltet får fjernet eller tilføjet penge alt efter hvad værdierne for udgift(cost) og indtægt(income) er på kortet (brug pay og recieve metoderne i Player). 
+## Task 1: 
+...
+## Task 2: 
+...
 
 ## Task 3: Nedarving
 Her skal vi arbejde med tre klasser hvor de to arver fra den tredje. Vi skal se hvad der sker, når to subklasser (children) implementerer en metode forskelligt og vi skal se hvordan subklasser kan behandles som deres superklasser. 
