@@ -3,13 +3,18 @@
 
 ## Task 1: Flow i programmer
 1.1 Lav en klasse med mindst fire metoder. Du kan kalde metoderne methodA, methodB, methodC og methodD eller bruge mere kreative navne. 
+
 1.2 Lad metoderne printe bogstaver ud. Du kan lade dig inspirere af klassen Flows.java.
+
 1.3 Prøv programmet af fra en main-metode og se om der bliver printet det ud, som du regner med. Du kan lade dig inspirere af klassen Main.java.
+
 1.4 Ret nu til i programmet, så når du laver dine kald fra main, bliver der printet "Java er sjovt". Hvert bogstav skal printes fra et forskelligt sted i programmet. (Det vil sige, at hvor der før blev printet fx a b c h j k fra de forskellige metodekald, skal der nu printes J a v a  e r  s j o v t fra samme metodekald.)
 
 ## Task 2: Debugger og fejlfinding
 2.1 Hent klassen Cinema.java og klassen FindFemFejl.java. Kig koden igennem og dan dig et overblik over hvad den gør. 
+
 2.2 Kør main-metoden i FindFemFejl.java. Koden vil fejle. 
+
 2.3 Find ud af hvorfor koden fejler og ret Cinema til, så koden kører uden fejl. Der er fem ting, der skal rettes i koden.
 <details>
         <summary>
