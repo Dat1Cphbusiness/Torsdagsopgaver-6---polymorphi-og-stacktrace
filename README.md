@@ -22,6 +22,12 @@
  </summary>
         En af fejlene får ikke koden til at gå ned, men giver os stadig ikke det resultat, vi gerne vil have.        
     </details> 
+<details>
+        <summary>
+            Endnu et hint
+ </summary>
+        Der er forskel på tallet 0 og bogstavet O        
+    </details> 
 
 
 ## Task 3: Nedarving
