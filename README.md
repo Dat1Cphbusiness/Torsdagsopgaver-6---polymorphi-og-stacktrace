@@ -22,7 +22,7 @@
  </summary>
         * En af fejlene får ikke koden til at gå ned, men giver os stadig ikke det resultat, vi gerne vil have.  
         
-        *  Husk at der er forskel på 0 (tallet nul) og O (bogstavet o)
+        * Husk at der er forskel på 0 (tallet nul) og O (bogstavet o)
     </details> 
 
 
