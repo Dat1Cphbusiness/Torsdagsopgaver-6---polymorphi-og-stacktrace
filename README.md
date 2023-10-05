@@ -74,4 +74,4 @@ EKSTRA: Den korrekte Java-måde at lave en metode, der ikke gør noget, er dog a
 
 4.4 Lav metoden getTotalArea() i klassen ShapeBuilder, som returnerer det samlede areal af alle Shape-objekterne i ArrayListen. 
 
-4.5 Test metoden getTotalArea() ved hjælp af unittest.
+
